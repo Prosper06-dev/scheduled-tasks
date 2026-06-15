@@ -10,7 +10,7 @@ parameters = {
     "lat": os.environ.get("ISOLO_LAT"),
     "lon": os.environ.get("ISOLO_LONG"),
     "appid": OWM_api_key,
-    "cnt": 4,
+    "cnt": 5,
 }
 
 response = requests.get("https://api.openweathermap.org/data/2.5/forecast", params=parameters)
@@ -26,7 +26,7 @@ for time_stamp in weather_data["list"]:
 if will_rain:
     client = Client(account_sid, auth_token)
     message = client.messages.create(
-        body="\nIt's going to rain today. Remember to bring an Umbrella 🌂",
+        body="It's going to rain today. Remember to bring an Umbrella 🌂",
         from_="+15863105290",
         to="+2347033912091",
     )
